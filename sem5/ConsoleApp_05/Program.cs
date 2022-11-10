@@ -4,26 +4,46 @@
 // [1 2 3 4 5] -> 5 8 3
 // [6 7 3 6] -> 36 21
 
-void NewArray(int[] array)
+void PrintArr(int[] array)
+{
+    for(int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+    Console.WriteLine();
+}
+
+int[] NewArray(int[] array)
 {
     int length = array.Length;
+    int newLength = length / 2;
+    if(length%2 != 0) 
+    {
+        newLength = length / 2 + 1;
+    }
+
+    int[] new_array = new int[newLength];
+
     for (int i = 0; i < length/2; i++)
     {
-        Console.Write(array[i] * array[length - i - 1] + " ");
+        new_array[i] = array[i] * array[length - i - 1];
     }
     if(length%2 != 0)
     {
-        Console.Write(array[length/2]);
+        new_array[newLength - 1] = array[length/2];
     }
+    return new_array;
 }
 
-int[] array = new int[6];
+int[] array = new int[5];
 
 for(int i = 0; i < array.Length; i++)
 {
     array[i] = new Random().Next(-10, 10);
-    Console.Write(array[i] + " ");
 }
-Console.WriteLine();
 
-NewArray(array);
+PrintArr(array);
+
+int[] new_array = NewArray(array);
+
+PrintArr(new_array);
