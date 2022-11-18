@@ -12,13 +12,13 @@
 // 8 4 2 4
 
 // Заполнить массив.
-void FillArray(int[,] array, int m, int n)
+void FillArray(int[,] array)
 {
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(-100, 101);
+            array[i, j] = new Random().Next(1, 10);
             Console.Write(array[i, j] + " ");
         }
         Console.WriteLine();
@@ -26,11 +26,11 @@ void FillArray(int[,] array, int m, int n)
 }
 
 // Изменить элементы массива с четными индексами
-void ChangeArray(int[,] array, int m, int n)
+void ChangeArray(int[,] array)
 {
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
             if(i % 2 == 0 && j % 2 == 0)
             {
@@ -51,6 +51,6 @@ int n = Convert.ToInt32(Console.ReadLine());
 
 int[,] arr = new int[m, n];
 
-FillArray(arr, m, n);
+FillArray(arr);
 Console.WriteLine();
-ChangeArray(arr, m, n);
+ChangeArray(arr);
